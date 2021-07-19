@@ -1,13 +1,14 @@
 <script>
-
+  // onMount trigger when the Home component mount
+  import { onMount } from 'svelte';
   // Components
-  import Header from '../components/Header.svelte';
   import Hero from '../components/Hero.svelte';
   import Search from '../components/Search.svelte';
   import Grid from '../components/Grid.svelte';
   import Thumb from '../components/Thumb.svelte';
   import LoadMoreButton from '../components/LoadMoreButton.svelte';
   import Spinner from '../components/Spinner.svelte';
+  import { fetchMovies } from '../api';
 
   // State
   let movies = {
@@ -17,10 +18,22 @@
   let searchTerm = '';
   let error;
 
+  const handleFetchMovies = async (loadMore, searchTerm) => {
+    try {
+      isLoading = true;
+      error = false;
+      movies = await fetchMovies(movies, loadMore, searchTerm);
+      console.log(movies);
+    } catch (err) {
+      error = true;
+    }
+    isLoading = false;
+  }
+
+  onMount(async () => handleFetchMovies(false, searchTerm));
 
 </script>
 
-<Header />
 <Hero />
 <Search />
 <Grid />

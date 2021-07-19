@@ -1,6 +1,9 @@
 // https://developers.themoviedb.org
 const API_URL = 'https://api.themoviedb.org/3/';
+
+console.log(process.env.API_KEY);
 const API_KEY = process.env.API_KEY;
+
 
 const SEARCH_BASE_URL = `${API_URL}search/movie?api_key=${API_KEY}&query=`;
 const POPULAR_BASE_URL = `${API_URL}movie/popular?api_key=${API_KEY}&query=`;
