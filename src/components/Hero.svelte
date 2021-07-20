@@ -4,7 +4,7 @@
   export let text;
 </script>
 
-<div class='wrapper' style="--image: url({image})">
+<div class='wrapper' style="--image: {`url(${image})`}">
   <div class='content'>
     <div class='text'>
       <h1>{title}</h1>

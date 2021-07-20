@@ -69,7 +69,6 @@
   {/if}
 {/if}
 
-<Hero />
 <Search on:search={handleSearch} />
 <Grid header={searchTerm ? 'Search results' : 'Popular movies'}>
   {#each movies.movies as movie}
