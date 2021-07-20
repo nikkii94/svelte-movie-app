@@ -1,7 +1,7 @@
 <script>
   import {POSTER_SIZE, IMAGE_BASE_URL} from '../helpers/config';
 
-  const noImage = '/no_image.jpg';
+  const noImage = '/images/no_image.jpg';
 
   export let actor;
 </script>
@@ -29,14 +29,15 @@
       border-radius: 15px;
   }
 
-  span.name {
-      font-size: 22px;
-      margin-top: 10px;
-  }
-
-  span {
+  .name {
       display: block;
-      margin-bottom: 5px;
+      font-size: 18px;
+      margin: 10px 0 0 0;
+  }
+  .character {
+      display: block;
+      font-size: 16px;
+      margin: 0 0 10px 0;
   }
 
 </style>

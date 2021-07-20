@@ -29,11 +29,23 @@
 
   @media screen and (min-width: 375px) {
       .content {
-        grid-template-columns: repeat(2, minmax(100px, 1fr));
+          grid-template-columns: repeat(2, minmax(100px, 1fr));
       }
   }
-
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 600px) {
+      .content {
+          grid-template-columns: repeat(3, minmax(100px, 1fr));
+      }
+  }
+  @media screen and (min-width: 768px) {
+      .content {
+          grid-template-columns: repeat(4, minmax(100px, 1fr));
+      }
+      h1 {
+          font-size: 42px;
+      }
+  }
+  @media screen and (min-width: 1024px) {
       .content {
           grid-template-columns: repeat(5, minmax(100px, 1fr));
       }

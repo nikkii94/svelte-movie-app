@@ -1,5 +1,5 @@
 <script>
-  const svelteLogo = '/favicon.png';
+  const svelteLogo = '/images/logo.png';
   const tmdbLogo = '/images/tmdb_logo.svg';
 
 </script>
@@ -32,6 +32,26 @@
   }
 
   .svelte-logo {
-      max-height: 40px;
+      width: 250px;
+      margin-top: 20px;
+  }
+  .tmdb-logo {
+      width: 122px;
+      margin-top: 25px;
+  }
+  @media screen and (max-width: 500px) {
+      .content {
+          max-width: 1280px;
+          min-height: 0px;
+      }
+      .svelte-logo {
+          width: 150px;
+          margin-top: 5px;
+      }
+      .tmdb-logo {
+          display: inline-block;
+          width: 80px;
+          margin-top: 0px;
+      }
   }
 </style>

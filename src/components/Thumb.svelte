@@ -3,7 +3,7 @@
   export let movieId = '';
   export let clickable = false;
 
-  const noImage = '/no_image.jpg';
+  const noImage = '/images/no_image.jpg';
 </script>
 
 <div class='wrapper'>
@@ -20,10 +20,10 @@
 <style>
   img {
       width: 100%;
+      height: 100%;
       transition: all .3s;
       object-fit: cover;
       border-radius: 20px;
-      animation: animateMovieThumb .5s;
   }
 
   img:hover {
@@ -32,14 +32,5 @@
 
   .clickable {
       cursor: pointer;
-  }
-
-  @keyframes animateMovieThumb {
-      from {
-          opacity: 0;
-      }
-      to {
-          opacity: 1;
-      }
   }
 </style>
