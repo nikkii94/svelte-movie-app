@@ -13,7 +13,7 @@
 
   // State
   let movies = {
-    movies: []
+    movies: [],
   };
   let isLoading;
   let searchTerm = '';
@@ -29,17 +29,31 @@
       error = true;
     }
     isLoading = false;
-  }
+  };
 
   const handleSearch = event => {
     searchTerm = event.detail.searchText;
     movies.movies = [];
     handleFetchMovies(false, searchTerm);
-  }
+  };
 
   const handleLoadMore = () => handleFetchMovies(true, searchTerm);
 
-  onMount(async () => handleFetchMovies(false, searchTerm));
+  onMount(async () => {
+    const sessionMovies = window.sessionStorage.getItem('svelte-movies');
+    if (sessionMovies) {
+        movies = JSON.parse(sessionMovies);
+    } else {
+      handleFetchMovies(false, searchTerm);
+    }
+  });
+
+  $: {
+    // save to session storage
+    if (movies.movies.length) {
+      window.sessionStorage.setItem('svelte-movies', JSON.stringify(movies));
+    }
+  }
 
 </script>
 

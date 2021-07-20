@@ -8,7 +8,7 @@
   import MovieInfoBar from '../components/MovieInfoBar.svelte';
   import Actor from '../components/Actor.svelte';
   import Grid from '../components/Grid.svelte';
-  import { fetchMovie, fetchMovies } from '../api';
+  import { fetchMovie } from '../api';
 
   export let params;
 
@@ -28,7 +28,21 @@
     isLoading = false;
   }
 
-  onMount(async () => handleFetchMovie());
+  onMount(async () => {
+    const localMovie = window.localStorage.getItem(params.id);
+    if (localMovie) {
+      movie = JSON.parse(localMovie);
+    } else {
+      handleFetchMovie();
+    }
+  });
+
+  $: {
+    // save to session storage
+    if (movie) {
+      window.localStorage.setItem(params.id, JSON.stringify(movie));
+    }
+  }
 
 </script>
 
